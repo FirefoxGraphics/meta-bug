@@ -346,7 +346,9 @@ function processTracker(parent_id, depend_id, data, parental_level)
             });
         }
     }
-    else    // this is a child report (dependency)
+
+    // this is a child report (dependency)
+    else if(d.status.toLowerCase() != "resolved")
     {
         assert(depend_id != 0, "Dependent ID is zero at parental level >0!");
 
@@ -399,7 +401,7 @@ function processTracker(parent_id, depend_id, data, parental_level)
         }
 
         var display = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-        if(creation_age < TIME_THRESHOLDS[1]) {
+        if(creation_age < TIME_THRESHOLDS[0]) {
             // new report
             display = "<img src=\"images/new.png\">&nbsp;"; 
         }
