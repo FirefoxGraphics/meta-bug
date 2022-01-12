@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <meta charset="utf-8"/>
+    <title>Meta Bug Tracker</title>
+    <link rel="stylesheet" type="text/css" href="css/meta.css"/>
+    <script src="js/libs/jquery-1.12.0.min.js"></script>
+    <script src="js/libs/jquery-cross-origin.min.js"></script>
+    <script src="js/libs/purl-2.3.1/purl.js"></script>
+    <script src="js/meta.js"></script>
+  </head>
+  <body id="body">
+    <div id="header-bg" class="header-bg"></div>
+    <div class="header"><img id="title-img" src="images/bugzilla.png" height="100%"/>
+        <div id="title"><a href="https://www.bugzilla.org/">Bugzilla</a></div>
+        <div id="subtitle" class="subtitle">Dependency Tracker</div>
+    </div>
+    <div id="announcement" class="announcement">
+        <button class="openButton" onclick="openSettings()"><strong>Settings</strong></button>
+    </div>
+    <div class="settingsPopup">
+      <div class="formPopup" id="popupForm">
+        <form action="/action_page.php" class="formContainer">
+          <h2>Settings</h2>
+          <label for="api-key">
+            <strong><a href="https://wiki.mozilla.org/Bugzilla:REST_API#with_two_factor_authentication" target="_blank" rel="noopener noreferrer">API Key</a></strong>
+          </label>
+          <input type="text" id="api-key" placeholder="Bugzilla API Key" name="key"/>
+
+          <label for="watch-bug">Metabug(s)</label>
+          <input type="text" id="watch-bug" placeholder="number[, number...]" name="bug"/>
+
+          <label for="refresh-interval">Refresh interval</label>
+          <input type="text" id="refresh-interval" placeholder="seconds" name="refresh"/>
+
+          <label for="persist-values">Always remember my settings</label>
+          <input type="checkbox" id="persist-values" placeholder="Remember" name="remember"/>
+
+          <button type="submit" class="btn" id="applySettingsButton">Apply</button>
+          <button type="button" class="btn cancel" onclick="closeSettings()">Cancel</button>
+        </form>
+      </div>
+    </div>
+    <center>
+        <div id="legend">[ <img src="images/new.png" style="vertical-align: middle">&nbsp;&nbsp;new&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="images/security.png" style="vertical-align: middle;">&nbsp;&nbsp;sec bug&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="images/defect.png" style="vertical-align: middle;">&nbsp;&nbsp;defect&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="images/task.png" style="vertical-align: middle;">&nbsp;&nbsp;task&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="images/enhancement.png" style="vertical-align: middle;">&nbsp;&nbsp;enhancement ]&nbsp;&nbsp;&nbsp;&nbsp;
+            [ last activity:&nbsp;&nbsp;&#10532;&nbsp;&nbsp;older than&nbsp;&nbsp;
+            &#10534;&nbsp;&nbsp;younger than ]</div>
+            <br>
+        <div id="content"><h2>Please configure your metabug trackers in "Settings".</h2></div>
+    </center>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+    "meta" : {
+        "show_bugzilla_url": "https://bugzilla.mozilla.org/show_bug.cgi?id=",
+        "bugzilla_rest_url": "https://bugzilla.mozilla.org/rest/bug/",
+        "fields_query" : "include_fields=summary,depends_on,priority,severity,type,creation_time,last_change_time,status,keywords",
+        "refresh_every" : 0,
+        "api_key" : "",
+        "trackers" : []
+    }
+}
