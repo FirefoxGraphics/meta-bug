@@ -14,6 +14,12 @@ var META_DATA = null;
 var TIME_THRESHOLDS = [];
 var RESET_AGE_BUCKET = {};
 
+Number.prototype.pad = function(size) {
+    var s = String(this);
+    while (s.length < (size || 2)) {s = "0" + s;}
+    return s;
+}
+
 $(document).ready(function () {
     $("#applySettingsButton").click(function() {
         var x = $("form").serializeArray();
@@ -195,8 +201,8 @@ function main(json)
     if(META_DATA.refresh_every != 0) {
         setInterval(function() {
             var current = new Date();
-            var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
-            var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+            var cDate = current.getFullYear() + '-' + ((current.getMonth() + 1)).pad() + '-' + (current.getDate()).pad();
+            var cTime = (current.getHours()).pad() + ":" + (current.getMinutes()).pad() + ":" + (current.getSeconds()).pad();
             META_DATA.last_update = cDate + ' ' + cTime;
 
             initializeContent();
