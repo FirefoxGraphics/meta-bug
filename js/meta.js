@@ -118,6 +118,7 @@ $(document).ready(function () {
             "fields_query" : "include_fields=summary,depends_on,priority,severity,type,creation_time,last_change_time,status,keywords",
             "refresh_every" : 0,
             "api_key" : "",
+            "last_update" : "",
             "trackers" : []
         }
     };
@@ -193,6 +194,11 @@ function main(json)
 
     if(META_DATA.refresh_every != 0) {
         setInterval(function() {
+            var current = new Date();
+            var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+            var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+            META_DATA.last_update = cDate + ' ' + cTime;
+
             initializeContent();
             populateTrackers();
           }, META_DATA.refresh_every * 1000);
@@ -259,6 +265,11 @@ function initializeContent()
             }
             $("#content").replaceWith(content);
         }
+    }
+
+    if (META_DATA.last_update.length) {
+        var update = "<div id=\"update\">Last update: " + META_DATA.last_update + "</div>\n";
+        $("#update").replaceWith(update);
     }
 }
 
