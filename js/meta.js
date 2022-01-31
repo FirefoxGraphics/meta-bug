@@ -325,7 +325,7 @@ function processTracker(parent_id, depend_id, data, parental_level)
         var div = document.getElementById(metabug_id);
         if(div == null) {
             $("#reportDiv-" + parent_id).replaceWith("<div class=\"" + klass + "\" id=\"metabug-" + parent_id + "\">\n"
-                + "<h1>&#10748;&nbsp;<a href=\"" + link + "\">" + parent_id + "</a>&nbsp;&#10749;</h1>\n"
+                + "<h1>&#10748;&nbsp;<a href=\"" + link + "\" target=\"_blank\" rel=\"noopener noreferrer\">" + parent_id + "</a>&nbsp;&#10749;</h1>\n"
                 + "<h2>" + d.summary + "</h2>\n"
                 + "<div class=\"history-\"" + parent_id + ">\n"
                 + "&#10205;&mdash;&mdash;&mdash;&mdash; &#10532; Year &mdash;&mdash;&mdash;&mdash;&#10206;\n"
